@@ -6,8 +6,6 @@
     <title>Vaccination Reminder - Home</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-    <!-- Razorpay Script -->
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 </head>
 <body>
     <!-- Navbar -->
@@ -104,7 +102,8 @@
                 <label for="time">Preferred Time:</label>
                 <input type="time" id="time" name="time" required>
 
-                <button type="button" onclick="processPayment()">Pay and Schedule</button>
+                <!-- UPI Deep Link -->
+                <a href="upi://pay?pa=9560849244@ptyes&pn=Garvit%20Arora&cu=INR" target="_blank" class="payment-button">Pay and Schedule</a>
             </form>
         </section>
     </main>
