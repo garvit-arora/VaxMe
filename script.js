@@ -121,3 +121,46 @@ function processPayment() {
     // Clear the form
     document.getElementById('appointmentForm').reset();
 }
+// Function to process payment using Razorpay
+function processPayment() {
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const vaccine = document.getElementById('vaccine').value;
+    const center = document.getElementById('center').value;
+    const date = document.getElementById('date').value;
+    const time = document.getElementById('time').value;
+
+    // Validate form fields
+    if (!name || !email || !phone || !vaccine || !center || !date || !time) {
+        alert("Please fill out all fields.");
+        return;
+    }
+
+    // Razorpay payment options
+    const options = {
+        key: "YOUR_RAZORPAY_KEY_ID", // Replace with your Razorpay Key ID
+        amount: 50000, // Amount in paise (e.g., 50000 = ₹500)
+        currency: "INR",
+        name: "Vaccination Reminder",
+        description: "Payment for Vaccination Appointment",
+        image: "https://example.com/logo.png", // Add your logo URL
+        handler: function (response) {
+            alert(`Payment successful! Payment ID: ${response.razorpay_payment_id}`);
+            // Redirect or show success message
+            window.location.href = "success.html"; // Redirect to a success page
+        },
+        prefill: {
+            name: name,
+            email: email,
+            contact: phone,
+        },
+        theme: {
+            color: "#4CAF50", // Green theme
+        },
+    };
+
+    // Open Razorpay payment modal
+    const rzp = new Razorpay(options);
+    rzp.open();
+}
