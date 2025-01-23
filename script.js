@@ -164,3 +164,33 @@ function processPayment() {
     const rzp = new Razorpay(options);
     rzp.open();
 }
+// Function to generate Google Calendar link
+function generateGoogleCalendarLink(name, vaccine, date) {
+    const formattedDate = new Date(date).toISOString().replace(/-|:|\.\d+/g, '');
+    return `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
+        `Vaccination: ${vaccine}`
+    )}&dates=${formattedDate}/${formattedDate}&details=${encodeURIComponent(
+        `Name: ${name}\nVaccine: ${vaccine}`
+    )}&location=Vaccination Center`;
+}
+
+// Handle booking form submission
+document.getElementById('bookingForm').addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Show the sync button
+    document.getElementById('syncSection').style.display = 'block';
+
+    // Handle sync button click
+    document.getElementById('syncCalendarBtn').addEventListener('click', function () {
+        const name = document.getElementById('name').value;
+        const vaccine = document.getElementById('vaccine').value;
+        const date = document.getElementById('date').value;
+
+        // Generate Google Calendar link
+        const googleCalendarLink = generateGoogleCalendarLink(name, vaccine, date);
+
+        // Open Google Calendar in a new tab
+        window.open(googleCalendarLink, '_blank');
+    });
+});
