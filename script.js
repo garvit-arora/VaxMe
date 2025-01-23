@@ -105,3 +105,19 @@ document.getElementById('contactForm').addEventListener('submit', function(event
     // Clear the form
     document.getElementById('contactForm').reset();
 });
+// Function to process payment (mock integration)
+function processPayment() {
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const vaccine = document.getElementById('vaccine').value;
+    const center = document.getElementById('center').value;
+    const date = document.getElementById('date').value;
+    const time = document.getElementById('time').value;
+
+    // Mock payment integration (replace with actual payment gateway)
+    alert(`Payment processed for ${name}. Appointment scheduled for ${date} at ${time}.`);
+
+    // Clear the form
+    document.getElementById('appointmentForm').reset();
+}
