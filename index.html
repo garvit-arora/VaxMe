@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vaccine Appointment Scheduler</title>
+    <title>Vaccination Appointment Scheduler - Hom</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -17,7 +17,7 @@
 
     <!-- Header -->
     <header>
-        <h1>Vaccine Appointment Scheduler</h1>
+        <h1>Vaccination Appointment Scheduler</h1>
         <p>Stay updated with vaccinations for all ages, animal bites, and health conditions.</p>
     </header>
 
@@ -52,15 +52,18 @@
             <div id="animalVaccineList" class="vaccine-list"></div>
         </section>
 
-        <!-- Booking Section -->
+        <!-- Appointment Section -->
         <section>
-            <h2>Book Your Vaccination</h2>
-            <form class="booking-form" id="bookingForm">
+            <h2>Schedule an Appointment</h2>
+            <form class="appointment-form" id="appointmentForm">
                 <label for="name">Full Name:</label>
                 <input type="text" id="name" name="name" required>
 
-                <label for="age">Age:</label>
-                <input type="number" id="age" name="age" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
 
                 <label for="vaccine">Select Vaccine:</label>
                 <select id="vaccine" name="vaccine" required>
@@ -85,25 +88,29 @@
                     <option value="Tetanus">Tetanus</option>
                 </select>
 
+                <label for="center">Select Vaccination Center:</label>
+                <select id="center" name="center" required>
+                    <option value="">-- Select a Center --</option>
+                    <option value="Center A">Center A</option>
+                    <option value="Center B">Center B</option>
+                    <option value="Center C">Center C</option>
+                </select>
+
                 <label for="date">Preferred Date:</label>
                 <input type="date" id="date" name="date" required>
 
-                <button type="submit">Book Now</button>
+                <label for="time">Preferred Time:</label>
+                <input type="time" id="time" name="time" required>
+
+                <!-- UPI Deep Link -->
+                <a href="upi://pay?pa=9560849244@ptyes&pn=Garvit%20Arora&cu=INR" target="_blank" class="payment-button">Pay and Schedule</a>
             </form>
         </section>
-
-        <!-- Payment Section -->
-        <div id="paymentSection" style="display: none;">
-            <button id="paymentButton">Proceed to Payment</button>
-        </div>
-        <div id="paymentConfirmation" style="display: none;">
-            <p>Payment successful! Scheduling your appointment...</p>
-        </div>
     </main>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2023 Vaccine Appointment Scheduler. All rights reserved.</p>
+        <p>&copy; 2023 Vaccination Reminder. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>
