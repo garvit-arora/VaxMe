@@ -204,8 +204,8 @@ function generateGoogleCalendarLink(name, vaccine, date) {
     )}&location=Vaccination Center`;
 }
 
-// Handle booking form submission
-document.getElementById('bookingForm').addEventListener('submit', function (event) {
+// Handle appointment form submission
+document.getElementById('appointmentForm').addEventListener('submit', function (event) {
     event.preventDefault(); // Prevent form submission
 
     // Get form values
