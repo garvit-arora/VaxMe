@@ -102,7 +102,16 @@
                 <label for="time">Preferred Time:</label>
                 <input type="time" id="time" name="time" required>
             
-            <a id="syncCalendarLink" target="_blank">Sync with Google Calendar</a>
+            <!-- Add this inside your form -->
+<div id="syncSection">
+    <a
+        href="https://www.google.com/calendar/render?action=TEMPLATE&text=Vaccination%20Appointment&details=Name%3A%20%5BYour%20Name%5D%0AVaccine%3A%20%5BVaccine%20Name%5D&location=Vaccination%20Center&dates=20231010T090000Z%2F20231010T100000Z"
+        target="_blank"
+        class="sync-link"
+    >
+        Sync with Google Calendar
+    </a>
+</div>
             
                 <!-- UPI Deep Link -->
                 <a href="upi://pay?pa=9560849244@ptyes&pn=Garvit%20Arora&cu=INR" target="_blank" class="payment-button">Pay and Schedule</a>
