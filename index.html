@@ -101,7 +101,9 @@
 
                 <label for="time">Preferred Time:</label>
                 <input type="time" id="time" name="time" required>
-            <a class="payment-button">Sync With Google Calendar</a>
+            <div id="syncSection" style="display: none;">
+            <a id="syncCalendarLink" target="_blank">Sync with Google Calendar</a>
+            </div>
                 <!-- UPI Deep Link -->
                 <a href="upi://pay?pa=9560849244@ptyes&pn=Garvit%20Arora&cu=INR" target="_blank" class="payment-button">Pay and Schedule</a>
             </form>
