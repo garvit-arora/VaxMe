@@ -501,7 +501,7 @@ textarea {
     text-align: center;
 }
 
-#syncCalendarLink {
+.sync-link {
     background-color: #28a745; /* Green for sync link */
     color: white;
     padding: 10px 20px;
@@ -512,6 +512,6 @@ textarea {
     transition: background-color 0.3s ease;
 }
 
-#syncCalendarLink:hover {
+.sync-link:hover {
     background-color: #218838; /* Darker green on hover */
 }
