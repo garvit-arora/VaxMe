@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vaccination Appointment Scheduler - Home</title>
+    <title>Vaccination Appointment Scheduler - Hom</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -101,29 +101,29 @@
 
                 <label for="time">Preferred Time:</label>
                 <input type="time" id="time" name="time" required>
-
-                <!-- Sync with Google Calendar -->
-                <div id="syncSection" class="button-container">
-                    <a
-                        href="https://www.google.com/calendar/render?action=TEMPLATE&text=Vaccination%20Appointment&details=Name%3A%20%5BYour%20Name%5D%0AVaccine%3A%20%5BVaccine%20Name%5D&location=Vaccination%20Center&dates=20231010T090000Z%2F20231010T100000Z"
-                        target="_blank"
-                        class="sync-link"
-                    >
-                        Sync with Google Calendar
-                    </a>
-                </div>
-
+            
+            <!-- Add this inside your form -->
+<div id="syncSection">
+    <a
+        href="https://www.google.com/calendar/render?action=TEMPLATE&text=Vaccination%20Appointment&details=Name%3A%20%5BYour%20Name%5D%0AVaccine%3A%20%5BVaccine%20Name%5D&location=Vaccination%20Center&dates=20231010T090000Z%2F20231010T100000Z"
+        target="_blank"
+        class="sync-link"
+    >
+        Sync with Google Calendar
+    </a>
+</div>
+            
                 <!-- UPI Deep Link -->
-                <div class="button-container">
-                    <a href="upi://pay?pa=9560849244@ptyes&pn=Garvit%20Arora&cu=INR" target="_blank" class="payment-button">Pay and Confirm</a>
-                </div>
+                <a href="upi://pay?pa=9560849244@ptyes&pn=Garvit%20Arora&cu=INR" target="_blank" class="payment-button">Pay and Schedule</a>
             </form>
         </section>
     </main>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Vaccination Reminder. All rights reserved.</p>
+        <p>&copy; 2023 Vaccination Reminder. All rights reserved.</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
