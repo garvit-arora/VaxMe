@@ -10,11 +10,6 @@
 2. [Features](#features-)
 3. [How It Works](#how-it-works-)
 4. [Technology Stack](#technology-stack-)
-5. [Installation](#installation-)
-6. [Usage](#usage-)
-7. [Contributing](#contributing-)
-8. [License](#license-)
-
 ---
 
 ## **Introduction** 🌟
