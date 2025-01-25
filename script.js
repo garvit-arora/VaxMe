@@ -8,9 +8,9 @@ const vaccineData = {
 
 // Vaccines for animal bites
 const animalVaccineData = {
-    "dog": ["Tetanus"],
-    "cat": ["Tetanus"],
-    "other": ["Tetanus"]
+    "dog": ["Rabies"],
+    "cat": ["Rabies"],
+    "other": ["Rabies"]
 };
 
 // Show age-wise vaccines
