@@ -1,6 +1,6 @@
 # **Vaccination Appointment Scheduler** 💉📅
 
-![Project Banner](https://via.placeholder.com/1200x400.png?text=Vaccination+Appointment+Scheduler)  
+![Project Banner](![Logo](https://github.com/user-attachments/assets/6db0deb6-584c-4a5f-8ab2-6174df9db3c6))  
 *Stay updated with vaccinations for all ages, animal bites, and health conditions.*
 
 ---
