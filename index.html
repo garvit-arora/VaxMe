@@ -1,291 +1,166 @@
 <!DOCTYPE html>
-<html class="h-100">
-  <head>
-    <meta charset="UTF-8" />
-    <title>SPA SDK Sample</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" type="text/css" href="/css/main.css" />
-    <link
-      rel="stylesheet"
-      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/monokai-sublime.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.7.2/css/solid.css"
-      integrity="sha384-r/k8YTFqmlOaqRkZuSiE9trsrDXkh07mRaoGBMoDcmA58OHILZPsk29i2BsFng1B"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.7.2/css/fontawesome.css"
-      integrity="sha384-4aon80D8rXCGx9ayDt85LbyUHeMWd3UiBaWliBlJ53yzm9hqN21A+o1pqoyK04h+"
-      crossorigin="anonymous"
-    />
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VAXIFY</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="centers.html"><i class="fas fa-map-marker-alt"></i> Vaccination Centers</a>
+        <a href="contact.html"><i class="fas fa-phone"></i> Contact Us</a>
+       <div class="auth-buttons">
+            <a href="login.html" id="loginBtn" class="btn">Login</a>
+           
+        </div>
+    </nav>
 
-    <link
-      rel="stylesheet"
-      href="https://cdn.auth0.com/js/auth0-samples-theme/1.0/css/auth0-theme.min.css"
-    />
-  </head>
+    <!-- Header -->
+    <header>
+        <h1>Vaccination Appointment Scheduler</h1>
+        <p>Health in a Click ! Never Miss a Dose !</p>
+    </header>
 
-  <body class="h-100">
-    <div id="app" class="h-100 d-flex flex-column">
-      <div class="nav-container">
-        <nav class="navbar navbar-expand-md navbar-light bg-light">
-          <div class="container">
-            <div class="navbar-brand logo"></div>
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#navbarNav"
-              aria-controls="navbarNav"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
+    <!-- Main Content -->
+    <main>
+        <button id="agentButton" onclick="toggleChat()">💬</button>
 
-            <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                  <a href="/" class="nav-link route-link">Home</a>
-                </li>
-              </ul>
-              <ul class="navbar-nav d-none d-md-block">
-                <!-- Login button: show if NOT authenticated -->
-                <li class="nav-item auth-invisible">
-                  <button
-                    id="qsLoginBtn"
-                    onclick="login()"
-                    class="btn btn-primary btn-margin auth-invisible hidden"
-                  >
-                    Log in
-                  </button>
-                </li>
-                <!-- / Login button -->
-
-                <!-- Fullsize dropdown: show if authenticated -->
-                <li class="nav-item dropdown auth-visible hidden">
-                  <a
-                    class="nav-link dropdown-toggle"
-                    href="#"
-                    id="profileDropDown"
-                    data-toggle="dropdown"
-                  >
-                    <!-- Profile image should be set to the profile picture from the id token -->
-                    <img
-                      alt="Profile picture"
-                      class="nav-user-profile profile-image rounded-circle"
-                      width="50"
-                    />
-                  </a>
-                  <div class="dropdown-menu">
-                    <!-- Show the user's full name from the id token here -->
-                    <div class="dropdown-header nav-user-name user-name"></div>
-                    <a
-                      href="/profile"
-                      class="dropdown-item dropdown-profile route-link"
-                    >
-                      <i class="fas fa-user mr-3"></i> Profile
-                    </a>
-                    <a
-                      href="#"
-                      class="dropdown-item"
-                      id="qsLogoutBtn"
-                      onclick="logout()"
-                    >
-                      <i class="fas fa-power-off mr-3"></i> Log out
-                    </a>
-                  </div>
-                </li>
-                <!-- /Fullsize dropdown -->
-              </ul>
-
-              <!-- Responsive login button: show if NOT authenticated -->
-              <ul class="navbar-nav d-md-none auth-invisible">
-                <button
-                  class="btn btn-primary btn-block auth-invisible hidden"
-                  id="qsLoginBtn"
-                  onclick="login()"
-                >
-                  Log in
-                </button>
-              </ul>
-              <!-- /Responsive login button -->
-
-              <!-- Responsive profile dropdown: show if authenticated -->
-              <ul
-                class="
-                  navbar-nav
-                  d-md-none
-                  auth-visible
-                  hidden
-                  justify-content-between
-                "
-                style="min-height: 125px"
-              >
-                <li class="nav-item">
-                  <span class="user-info">
-                    <!-- Profile image should be set to the profile picture from the id token -->
-                    <img
-                      alt="Profile picture"
-                      class="
-                        nav-user-profile
-                        d-inline-block
-                        profile-image
-                        rounded-circle
-                        mr-3
-                      "
-                      width="50"
-                    />
-                    <!-- Show the user's full name from the id token here -->
-                    <h6 class="d-inline-block nav-user-name user-name"></h6>
-                  </span>
-                </li>
-                <li>
-                  <i class="fas fa-user mr-3"></i>
-                  <a href="/profile" class="route-link">Profile</a>
-                </li>
-
-                <li>
-                  <i class="fas fa-power-off mr-3"></i>
-                  <a href="#" id="qsLogoutBtn" onclick="logout()">Log out</a>
-                </li>
-              </ul>
+        <div id="chatContainer">
+            <div id="header">Vaccine Help Bot</div>
+            <div id="chatBox">
+                <div>Welcome! How can I assist you with vaccine-related queries?</div>
+                <div id="optionsContainer">
+                    <button class="optionBtn" onclick="showVaccineInfo()">Know about vaccines</button>
+                    <button class="optionBtn" onclick="callAgent()">Call an agent</button>
+                </div>
             </div>
-          </div>
-        </nav>
-      </div>
-
-      <div id="main-content" class="container mt-5 flex-grow-1">
-        <div id="content-home" class="page">
-          <div class="text-center hero">
-            <img
-              class="mb-3 app-logo"
-              src="/images/logo.png"
-              alt="JavaScript logo"
-              width="75"
-            />
-            <h1 class="mb-4">JavaScript Sample Project</h1>
-
-            <p class="lead">
-              This is a sample application that demonstrates an authentication
-              flow for an SPA, using plain JavaScript
-            </p>
-          </div>
-
-          <div class="next-steps">
-            <h2 class="my-5 text-center">What can I do next?</h2>
-
-            <div class="row">
-              <div class="col-md-5 mb-4">
-                <h6 class="mb-3">
-                  <a href="https://auth0.com/docs/connections">
-                    <i class="fas fa-link"></i> Configure other identity
-                    providers
-                  </a>
-                </h6>
-                <p>
-                  Auth0 supports social providers as Facebook, Twitter,
-                  Instagram and 100+, Enterprise providers as Microsoft Office
-                  365, Google Apps, Azure, and more. You can also use any OAuth2
-                  Authorization Server.
-                </p>
-              </div>
-
-              <div class="col-md"></div>
-
-              <div class="col-md-5 mb-4">
-                <h6 class="mb-3">
-                  <a href="https://auth0.com/docs/multifactor-authentication">
-                    <i class="fas fa-link"></i> Enable Multifactor
-                    Authentication
-                  </a>
-                </h6>
-                <p>
-                  Add an extra layer of security by enabling Multi-factor
-                  Authentication, requiring your users to provide more than one
-                  piece of identifying information. Push notifications,
-                  authenticator apps, SMS, and DUO Security are supported.
-                </p>
-              </div>
+            <div id="footer">
+                <span>Vaccine Bot</span>
             </div>
-
-            <div class="row">
-              <div class="col-md-5 mb-4">
-                <h6 class="mb-3">
-                  <a href="https://auth0.com/docs/anomaly-detection">
-                    <i class="fas fa-link"></i> Anomaly Detection
-                  </a>
-                </h6>
-                <p>
-                  Auth0 can detect anomalies and stop malicious attempts to
-                  access your application. Anomaly detection can alert you and
-                  your users of suspicious activity, as well as block further
-                  login attempts.
-                </p>
-              </div>
-
-              <div class="col-md"></div>
-
-              <div class="col-md-5 mb-4">
-                <h6 class="mb-3">
-                  <a href="https://auth0.com/docs/rules">
-                    <i class="fas fa-link"></i> Learn About Rules
-                  </a>
-                </h6>
-                <p>
-                  Rules are JavaScript functions that execute when a user
-                  authenticates to your application. They run once the
-                  authentication process is complete, and you can use them to
-                  customize and extend Auth0's capabilities.
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
 
-        <div class="page" id="content-profile">
-          <div class="container">
-            <div class="row align-items-center profile-header">
-              <div class="col-md-2">
-                <img
-                  alt="User's profile picture"
-                  class="rounded-circle img-fluid profile-image mb-3 mb-md-0"
-                />
-              </div>
-              <div class="col-md">
-                <h2 class="user-name"></h2>
-                <p class="lead text-muted user-email"></p>
-              </div>
+        <!-- Age-wise Vaccine Suggestions -->
+        <section>
+            <h2>Age-wise Vaccine Suggestions</h2>
+            <div class="dropdown">
+                <button class="dropbtn">Select Age Group <i class="fas fa-chevron-down"></i></button>
+                <div class="dropdown-content">
+                    <a href="#" onclick="showVaccines('0-2')">0-2 Years</a>
+                    <a href="#" onclick="showVaccines('3-18')">3-18 Years</a>
+                    <a href="#" onclick="showVaccines('19-64')">19-64 Years</a>
+                    <a href="#" onclick="showVaccines('65+')">65+ Years</a>
+                </div>
+            </div>
+            <div id="vaccineList" class="vaccine-list"></div>
+        </section>
+
+        <!-- Vaccines for Animal Bites -->
+        <section>
+            <h2>Vaccines for Animal Bites</h2>
+            <div class="dropdown">
+                <button class="dropbtn">Select Animal <i class="fas fa-chevron-down"></i></button>
+                <div class="dropdown-content">
+                    <a href="#" onclick="showAnimalVaccines('dog')">Dog Bite</a>
+                    <a href="#" onclick="showAnimalVaccines('cat')">Cat Bite</a>
+                    <a href="#" onclick="showAnimalVaccines('other')">Other Animal Bites</a>
+                </div>
+            </div>
+            <div id="animalVaccineList" class="vaccine-list"></div>
+        </section>
+
+        <!-- Appointment Section -->
+        <section>
+            <h2>Book an Appointment !</h2>
+            <div class="appointment-box">
+                <h3>Remind Me !</h3>
+                <form class="appointment-form" id="appointmentForm">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="date">Preferred Date:</label>
+                    <input type="date" id="date" name="date" required>
+
+                    <div id="syncSection">
+                        <a
+                            href="https://www.google.com/calendar/render?action=TEMPLATE&text=Vaccination%20Appointment&details=Name%3A%20%5BYour%20Name%5D%0AVaccine%3A%20%5BVaccine%20Name%5D&location=Vaccination%20Center&dates=20231010T090000Z%2F20231010T100000Z"
+                            target="_blank"
+                            class="sync-link"
+                        >
+                            Sync with Google Calendar
+                        </a>
+                    </div>
+                </form>
             </div>
 
-            <div class="row">
-              <pre class="rounded">
-                <code id="profile-data" class="json"></code></pre>
+            <div class="appointment-box">
+                <h3>Schedule an Appointment</h3>
+                <form class="appointment-form" id="paymentForm">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" required>
+
+                    <label for="vaccine">Select Vaccine:</label>
+                    <select id="vaccine" name="vaccine" required>
+                        <option value="">-- Select a Vaccine --</option>
+                        <option value="Hepatitis B">Hepatitis B</option>
+                        <option value="DTaP">DTaP (Diphtheria, Tetanus, Pertussis)</option>
+                        <option value="Hib">Hib (Haemophilus influenzae type b)</option>
+                        <option value="IPV">IPV (Polio)</option>
+                        <option value="PCV">PCV (Pneumococcal)</option>
+                        <option value="RV">RV (Rotavirus)</option>
+                        <option value="MMR">MMR (Measles, Mumps, Rubella)</option>
+                        <option value="Varicella">Varicella (Chickenpox)</option>
+                        <option value="Hepatitis A">Hepatitis A</option>
+                        <option value="HPV">HPV (Human Papillomavirus)</option>
+                        <option value="MenACWY">MenACWY (Meningococcal)</option>
+                        <option value="Tdap">Tdap (Tetanus, Diphtheria, Pertussis)</option>
+                        <option value="Influenza">Influenza (Flu)</option>
+                        <option value="Shingles">Shingles</option>
+                        <option value="Pneumococcal">Pneumococcal (Pneumonia)</option>
+                        <option value="COVID-19">COVID-19</option>
+                        <option value="Rabies">Rabies</option>
+                        <option value="Tetanus">Tetanus</option>
+                    </select>
+
+                    <label for="center">Select Vaccination Center:</label>
+                    <select id="center" name="center" required>
+                        <option value="">-- Select a Center --</option>
+                        <option value="Center A">Center A</option>
+                        <option value="Center B">Center B</option>
+                        <option value="Center C">Center C</option>
+                    </select>
+
+                    <label for="date">Preferred Date:</label>
+                    <input type="date" id="date" name="date" required>
+
+                    <label for="time">Preferred Time:</label>
+                    <input type="time" id="time" name="time" required>
+
+                    <div id="paymentSection">
+                        <a href="https://buymeacoffee.com/vaxify" target="_blank" class="payment-button">Pay and Schedule</a>
+                    </div>
+                </form>
             </div>
-          </div>
-        </div>
-      </div>
+        </section>
+    </main>
 
-      <footer class="bg-light text-center p-5">
-        <div class="logo"></div>
-        <p>
-          Sample project provided by
-          <a href="https://auth0.com">Auth0</a>
-        </p>
-      </footer>
-    </div>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Vaccination Reminder. All rights reserved.</p>
+    </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
-    <script src="js/ui.js"></script>
-    <script src="js/app.js"></script>
-  </body>
+    <script src="script.js"></script>
+</body>
 </html>
