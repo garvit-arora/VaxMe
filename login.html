@@ -3,30 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>VAXIFY - Login</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <div class="form-container">
-        <h2>Login</h2>
-        <form id="loginForm">
-            <input type="text" id="loginUsername" class="input-field" placeholder="Username" required>
-            <input type="password" id="loginPassword" class="input-field" placeholder="Password" required>
-            <button type="submit" class="submit-btn">Login</button>
-        </form>
-    </div>
+    <!-- Navbar -->
+    <nav>
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="centers.html"><i class="fas fa-map-marker-alt"></i> Vaccination Centers</a>
+        <a href="contact.html"><i class="fas fa-phone"></i> Contact Us</a>
+        <div class="auth-buttons">
+            <a href="login.html" id="loginBtn" class="btn">Login</a>
+        </div>
+    </nav>
 
-    <script>
-        document.getElementById("loginForm").addEventListener("submit", function(e) {
-            e.preventDefault();
-            fetch("https://your-infinityfree-url.com/login.php", {
-                method: "POST",
-                headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: `username=${loginUsername.value}&password=${loginPassword.value}`
-            }).then(res => res.text()).then(data => alert(data));
-        });
-    </script>
+    <!-- Header -->
+    <header>
+        <h1>Login to VAXIFY</h1>
+        <p>Please log in to access your vaccination schedule and more.</p>
+    </header>
+
+    <!-- Auth0 Login Integration -->
+    <section id="auth0-login">
+        <script src="https://cdn.auth0.com/js/lock/13.0/lock.min.js"></script>
+        <script>
+            var config = {
+                clientID: 'YOUR_CLIENT_ID', // Replace with your Auth0 Client ID
+                auth0Domain: 'YOUR_AUTH0_DOMAIN', // Replace with your Auth0 Domain
+                callbackURL: window.location.href,
+                connection: 'Username-Password-Authentication', // You can change this based on your Auth0 setup
+                extraParams: {
+                    login_hint: ''
+                }
+            };
+
+            var lock = new Auth0Lock(config.clientID, config.auth0Domain, {
+                auth: {
+                    redirectUrl: config.callbackURL,
+                    responseType: 'token id_token',
+                    params: config.extraParams
+                },
+                theme: {
+                    primaryColor: 'green'
+                },
+                rememberLastLogin: false
+            });
+
+            // Show the Auth0 lock
+            lock.show();
+        </script>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Vaccination Reminder. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
