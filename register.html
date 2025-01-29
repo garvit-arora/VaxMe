@@ -1,1 +1,33 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Register</h2>
+        <form id="registerForm">
+            <input type="text" id="registerUsername" class="input-field" placeholder="Username" required>
+            <input type="password" id="registerPassword" class="input-field" placeholder="Password" required>
+            <button type="submit" class="submit-btn">Register</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("registerForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            fetch("https://your-infinityfree-url.com/register.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: `username=${registerUsername.value}&password=${registerPassword.value}`
+            }).then(res => res.text()).then(data => alert(data));
+        });
+    </script>
+
+</body>
+</html>
