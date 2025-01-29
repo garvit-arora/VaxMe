@@ -51,14 +51,14 @@
     </style>
     <script>
         function login() {
-            // Here you would typically validate the email and password
-            // For this example, we will just redirect to the vaxify site
+            const name = document.getElementById("name").value;
             const email = document.getElementById("email").value;
             const password = document.getElementById("password").value;
 
-            // You can add your authentication logic here
+            
+            localStorage.setItem("userName", name);
 
-            // Redirect to the desired URL after "logging in"
+            
             window.location.href = "https://vaxify.netlify.app";
         }
     </script>
@@ -66,6 +66,7 @@
 <body>
     <div class="container">
         <h1>Login</h1>
+        <input type="text" id="name" placeholder="Full Name" required>
         <input type="email" id="email" placeholder="Email" required>
         <input type="password" id="password" placeholder="Password" required>
         <button onclick="login()">Login</button>
