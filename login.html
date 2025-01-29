@@ -22,65 +22,59 @@
     .google-btn {
       background-color: #4285F4;
       color: white;
-      padding: 10px 20px;
+      padding: 12px 24px;
       border: none;
       border-radius: 5px;
       cursor: pointer;
       font-size: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       width: 100%;
-      margin-bottom: 20px;
     }
-    .google-btn img {
-      width: 20px;
-      margin-right: 10px;
-    }
-    .drama {
-      font-size: 18px;
-      margin-top: 20px;
-      display: none;
-    }
-    .notification {
-      font-size: 20px;
-      background-color: #4CAF50;
-      color: white;
-      padding: 10px;
-      border-radius: 5px;
-      display: none;
-      margin-top: 20px;
+    .google-btn:hover {
+      background-color: #357ae8;
     }
   </style>
 </head>
 <body>
+
   <div class="login-container">
-    <h2>Login</h2>
-    <button class="google-btn" onclick="loginWithGoogle()">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google logo">Login with Google
-    </button>
-    <div class="drama">Redirecting you... Please hold on.</div>
-    <div class="notification"></div>
+    <h2>Login with Google</h2>
+    <button class="google-btn" id="google-signin">Login with Google</button>
   </div>
 
-  <script>
-    function loginWithGoogle() {
-      // Simulate login with Google
-      setTimeout(function() {
-        // Show drama and notification after "login"
-        document.querySelector('.drama').style.display = 'block';
-        // Fake Google login name
-        const userName = 'John Doe';
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
 
-        // Simulate redirection delay
-        setTimeout(function() {
-          // Show notification after the drama
-          document.querySelector('.drama').style.display = 'none';
-          document.querySelector('.notification').style.display = 'block';
-          document.querySelector('.notification').textContent = `Hi, ${userName}!`;
-        }, 3000); // Delay 3 seconds to simulate redirection
-      }, 1000); // Simulate 1-second delay for login action
+  <script>
+
+    const CLIENT_ID = '322142898682-o8a1oirbisfbr95sujb4g59dfjukqnq8.apps.googleusercontent.com';
+
+    function handleLoginSuccess(response) {
+      // Extract user info
+      const user = response.getBasicProfile();
+      const userName = user.getName();
+
+      // Redirect to vaxify.netlify.app and pass user's name as a query parameter
+      window.location.href = `https://vaxify.netlify.app?name=${encodeURIComponent(userName)}`;
     }
+
+    function initGoogleSignIn() {
+      gapi.load('auth2', function() {
+        gapi.auth2.init({
+          client_id: CLIENT_ID
+        }).then(function() {
+          const auth2 = gapi.auth2.getAuthInstance();
+          
+          document.getElementById('google-signin').addEventListener('click', function() {
+            auth2.signIn().then(function(googleUser) {
+              handleLoginSuccess(googleUser);
+            });
+          });
+        });
+      });
+    }
+
+    // Initialize Google Sign-In when page loads
+    initGoogleSignIn();
   </script>
+
 </body>
 </html>
