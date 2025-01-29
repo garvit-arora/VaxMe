@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loading...</title>
+    <title>Login Page</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -16,49 +16,66 @@
             color: white;
             font-family: 'Roboto', sans-serif;
             text-align: center;
-            overflow: hidden;
         }
-        .loader {
-            border: 8px solid rgba(255, 255, 255, 0.2);
-            border-top: 8px solid white;
-            border-radius: 50%;
-            width: 80px;
-            height: 80px;
-            animation: spin 1s linear infinite;
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
             margin-bottom: 20px;
         }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        h2 {
-            font-size: 24px;
-            margin: 0;
-            animation: fadeIn 1s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        p {
+        button {
+            background-color: #4285F4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
             font-size: 16px;
-            margin-top: 10px;
-            animation: fadeIn 1s ease-in-out 0.5s forwards;
-            opacity: 0;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #357ae8;
         }
     </style>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
     <script>
-        // Redirect after 3 seconds
-        setTimeout(function() {
-            window.location.href = "https://vaxify.netlify.app";
-        }, 3000);
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_PROJECT_ID.appspot.com",
+            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
+
+        // Initialize Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+
+        function loginWithGoogle() {
+            const provider = new firebase.auth.GoogleAuthProvider();
+            auth.signInWithPopup(provider)
+                .then((result) => {
+                    // User signed in
+                    console.log("User  signed in: ", result.user);
+                    // Redirect to the desired URL
+                    window.location.href = "https://vaxify.netlify.app";
+                })
+                .catch((error) => {
+                    console.error("Error during login: ", error);
+                });
+        }
     </script>
 </head>
 <body>
-    <div>
-        <div class="loader"></div>
-        <h2>Loading, please wait...</h2>
-        <p>We're preparing something special for you!</p>
+    <div class="container">
+        <h1>Login to Your Account</h1>
+        <button onclick="loginWithGoogle()">Login with Google</button>
     </div>
 </body>
 </html>
