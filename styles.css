@@ -517,11 +517,23 @@ textarea {
 .sync-link:hover {
     background-color: #218838; /* Darker green on hover */
 }
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    margin: 0;
-    padding: 0;
+#agentButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Ensure it appears above other elements */
 }
 
 #chatContainer {
@@ -575,30 +587,4 @@ body {
 
 .optionBtn:hover {
     background-color: #45a049;
-}
-
-#footer {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    background-color: #fff;
-    border-top: 1px solid #ccc;
-}
-
-#agentButton {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    font-size: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
