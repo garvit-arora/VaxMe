@@ -23,6 +23,21 @@
 
     <!-- Main Content -->
     <main>
+            <button id="agentButton" onclick="toggleChat()">💬</button>
+
+    <div id="chatContainer">
+        <div id="header">Vaccine Help Bot</div>
+        <div id="chatBox">
+            <div>Welcome! How can I assist you with vaccine-related queries?</div>
+            <div id="optionsContainer">
+                <button class="optionBtn" onclick="showVaccineInfo()">Know about vaccines</button>
+                <button class="optionBtn" onclick="callAgent()">Call an agent</button>
+            </div>
+        </div>
+        <div id="footer">
+            <span>Vaccine Bot</span>
+        </div>
+    </div>
         <!-- Age-wise Vaccine Suggestions -->
         <section>
             <h2>Age-wise Vaccine Suggestions</h2>
@@ -120,35 +135,12 @@
             </form>
         </section>
     </main>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vaccine Chatbot</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
 
-    <button id="agentButton" onclick="toggleChat()">💬</button>
 
-    <div id="chatContainer">
-        <div id="header">Vaccine Help Bot</div>
-        <div id="chatBox">
-            <div>Welcome! How can I assist you with vaccine-related queries?</div>
-            <div id="optionsContainer">
-                <button class="optionBtn" onclick="showVaccineInfo()">Know about vaccines</button>
-                <button class="optionBtn" onclick="callAgent()">Call an agent</button>
-            </div>
-        </div>
-        <div id="footer">
-            <span>Vaccine Bot</span>
-        </div>
-    </div>
 
-    <script src="script.js"></script>
-</body>
-</html>
+
+
+
     <!-- Footer -->
     <footer>
         <p>&copy; 2023 Vaccination Reminder. All rights reserved.</p>
