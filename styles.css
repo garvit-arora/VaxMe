@@ -326,63 +326,28 @@ footer {
     background-color: #45a049;
 }
 .auth-buttons {
-    display: flex;
-    gap: 10px;
-}
-/* Align the buttons to the top-right */
-.button-container {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    display: flex;
-    gap: 15px;
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center items vertically */
+    margin-left: auto; /* Push the buttons to the right */
 }
 
-/* Button styling */
-#login-button, #register-button {
-    background-color: #28a745; /* Green color */
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    text-decoration: none; /* Remove underline */
-    transition: background-color 0.3s ease;
+#userNameDisplay {
+    margin-right: 10px; /* Space between the username and the login button */
+    color: white; /* Change color as needed */
+    font-weight: bold; /* Make the username bold */
 }
 
-/* Hover effect */
-#login-button:hover, #register-button:hover {
-    background-color: #218838; /* Darker green on hover */
+.btn {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    padding: 10px 15px; /* Some padding */
+    text-decoration: none; /* No underline */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth transition */
 }
 
-/* Unique Button Styles */
-#loginBtn, #registerBtn {
-    padding: 12px 25px;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: 0.3s ease-in-out;
-    position: relative;
-    right:-452px;
-}
-
-#loginBtn {
-    background: #28a745;  /* Green */
-    color: white;
-}
-
-#registerBtn {
-    background: #17a2b8; /* Teal */
-    color: white;
-}
-
-#loginBtn:hover {
-    background: #218838;
-}
-
-#registerBtn:hover {
-    background: #138496;
+.btn:hover {
+    background-color: #45a049; /* Darker green on hover */
 }
 
 /* Login & Register Page */
