@@ -495,3 +495,26 @@ main {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+.auth-buttons {
+    display: flex;
+    align-items: center;
+}
+
+#userNameDisplay {
+    margin-right: 10px;
+    color: white; /* Change color as needed */
+}
+
+.btn {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    padding: 10px 15px; /* Some padding */
+    text-decoration: none; /* No underline */
+    border-radius: 5px; /* Rounded corners */
+    margin-left: 10px; /* Space between buttons */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.btn:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
