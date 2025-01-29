@@ -1,50 +1,68 @@
-# **Vaccination Appointment Scheduler** 💉📅
+# Sample 01 - Login
 
-![Logo](https://github.com/user-attachments/assets/6db0deb6-584c-4a5f-8ab2-6174df9db3c6)  
-*Stay updated with vaccinations for all ages, animal bites, and health conditions.*
+The purpose of this article is to demonstrate how simple it is to set up and use the new Single Page Application SDK, and authenticate a user in your application using Auth0's Universal Login Page.
 
----
+## Running the Sample Application
 
-## **Table of Contents** 📑
-1. [Introduction](#introduction-)
-2. [Features](#features-)
-3. [How It Works](#how-it-works-)
-4. [Technology Stack](#technology-stack-)
----
+The sample can be run locally, by cloning the repository to your machine and then following the steps below.
 
-## **Introduction** 🌟
-The **Vaccination Appointment Scheduler** is a web-based platform designed to simplify vaccination scheduling for individuals of all ages. Whether it's routine vaccinations, animal bite emergencies, or health condition-specific vaccines, our platform ensures you never miss a dose.  
+### Specifying Auth0 Credentials
 
-✨ **Key Highlights**:
-- **Google Calendar Integration**: Sync appointments seamlessly.
-- **Personalized Reminders**: Get timely notifications via email, SMS, or push alerts.
-- **Tailored Recommendations**: Age-wise and condition-based vaccine suggestions.
+To specify the application client ID and domain, make a copy of `auth_config.json.example` and rename it to `auth_config.json`. Then open it in a text editor and supply the values for your application:
 
----
+```json
+{
+  "domain": "{yourDomain}",
+  "clientId": "{yourClientId}"
+}
+```
 
-## **Features** 🚀
-- **📅 Age-wise Vaccine Suggestions**: Get vaccine recommendations based on your age group.
-- **🐾 Vaccines for Animal Bites**: Quick access to vaccines for dog, cat, and other animal bites.
-- **📲 Sync with Google Calendar**: Add appointments to your calendar with one click.
-- **💳 Payment Integration**: Secure payment options for booking appointments.
-- **🔔 Reminders**: Never miss a vaccination with timely reminders.
+### Installation
 
----
+After cloning the repository, run:
 
-## **How It Works** 🛠️
-1. **Select Age Group**: Choose your age group to see recommended vaccines.
-2. **Book Appointment**: Fill out the form with your details and preferred date/time.
-3. **Sync with Calendar**: Add the appointment to your Google Calendar.
-4. **Pay and Confirm**: Complete the payment to confirm your appointment.
-5. **Get Reminders**: Receive reminders via email, SMS, or push notifications.
+```bash
+$ npm install
+```
 
----
+This will install all of the necessary packages in order for the sample to run.
 
-## **Technology Stack** 💻
-- **Frontend**: HTML, CSS, JavaScript
-- **Backend**: (Optional - Add if applicable)
-- **APIs**: Google Calendar API
-- **Payment Gateway**: UPI Integration
-- **Hosting**: GitHub Pages / Netlify / Vercel
+### Running the Application
 
----
+This version of the application uses an [Express](https://expressjs.com) server that can serve the site from a single page. To start the app from the terminal, run:
+
+```bash
+$ npm run dev
+```
+
+## Frequently Asked Questions
+
+We are compiling a list of questions and answers regarding the new JavaScript SDK - if you're having issues running the sample applications, [check the FAQ](https://github.com/auth0/auth0-spa-js/blob/master/FAQ.md)!
+
+## What is Auth0?
+
+Auth0 helps you to:
+
+- Add authentication with [multiple authentication sources](https://docs.auth0.com/identityproviders), either social like **Google, Facebook, Microsoft Account, LinkedIn, GitHub, Twitter, Box, Salesforce, among others**, or enterprise identity systems like **Windows Azure AD, Google Apps, Active Directory, ADFS or any SAML Identity Provider**.
+- Add authentication through more traditional **[username/password databases](https://docs.auth0.com/mysql-connection-tutorial)**.
+- Add support for **[linking different user accounts](https://docs.auth0.com/link-accounts)** with the same user.
+- Support for generating signed [Json Web Tokens](https://docs.auth0.com/jwt) to call your APIs and **flow the user identity** securely.
+- Analytics of how, when and where users are logging in.
+- Pull data from other sources and add it to the user profile, through [JavaScript rules](https://docs.auth0.com/rules).
+
+## Create a free Auth0 account
+
+1. Go to [Auth0](https://auth0.com/signup) and click Sign Up.
+2. Use Google, GitHub or Microsoft Account to login.
+
+## Issue Reporting
+
+If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The [Responsible Disclosure Program](https://auth0.com/whitehat) details the procedure for disclosing security issues.
+
+## Author
+
+[Auth0](auth0.com)
+
+## License
+
+This project is licensed under the MIT license. See the [LICENSE](LICENSE.txt) file for more info.
