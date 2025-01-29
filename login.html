@@ -22,9 +22,17 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            width: 300px;
         }
         h1 {
             margin-bottom: 20px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
         }
         button {
             background-color: #4285F4;
@@ -35,48 +43,32 @@
             cursor: pointer;
             font-size: 16px;
             transition: background-color 0.3s;
+            width: 100%;
         }
         button:hover {
             background-color: #357ae8;
         }
     </style>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
     <script>
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
-  apiKey: "AIzaSyDbxdhFMvPPiZP4uDOFExE6B8oTk3LqSJ8",
-  authDomain: "vaxify-957e6.firebaseapp.com",
-  projectId: "vaxify-957e6",
-  storageBucket: "vaxify-957e6.firebasestorage.app",
-  messagingSenderId: "948078390575",
-  appId: "1:948078390575:web:df400b425591229a25c5da",
-  measurementId: "G-1MHC78BXMV"
-};
+        function login() {
+            // Here you would typically validate the email and password
+            // For this example, we will just redirect to the vaxify site
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
 
-        // Initialize Firebase
-        const app = firebase.initializeApp(firebaseConfig);
-        const auth = firebase.auth();
+            // You can add your authentication logic here
 
-        function loginWithGoogle() {
-            const provider = new firebase.auth.GoogleAuthProvider();
-            auth.signInWithPopup(provider)
-                .then((result) => {
-                    // User signed in
-                    console.log("User  signed in: ", result.user);
-                    // Redirect to the desired URL
-                    window.location.href = "https://vaxify.netlify.app";
-                })
-                .catch((error) => {
-                    console.error("Error during login: ", error);
-                });
+            // Redirect to the desired URL after "logging in"
+            window.location.href = "https://vaxify.netlify.app";
         }
     </script>
 </head>
 <body>
     <div class="container">
-        <h1>Login to Your Account</h1>
-        <button onclick="loginWithGoogle()">Login with Google</button>
+        <h1>Login</h1>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button onclick="login()">Login</button>
     </div>
 </body>
 </html>
