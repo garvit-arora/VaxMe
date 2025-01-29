@@ -18,7 +18,7 @@
     <!-- Header -->
     <header>
         <h1>Vaccination Appointment Scheduler</h1>
-        <p> Health in a Click! Never Miss a Dose .</p>
+        <p>Stay updated with vaccinations for all ages, animal bites, and health conditions.</p>
     </header>
 
     <!-- Main Content -->
@@ -71,70 +71,127 @@
         <!-- Appointment Section -->
         <section>
             <h2>Schedule an Appointment</h2>
-            <form class="appointment-form" id="appointmentForm">
-                <label for="name">Full Name:</label>
-                <input type="text" id="name" name="name" required>
+            <div class="appointment-box">
+                <h3>Reminder</h3>
+                <form class="appointment-form" id="appointmentForm">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required>
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
 
-                <label for="phone">Phone Number:</label>
-                <input type="tel" id="phone" name="phone" required>
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" required>
 
-                <label for="vaccine">Select Vaccine:</label>
-                <select id="vaccine" name="vaccine" required>
-                    <option value="">-- Select a Vaccine --</option>
-                    <option value="Hepatitis B">Hepatitis B</option>
-                    <option value="DTaP">DTaP (Diphtheria, Tetanus, Pertussis)</option>
-                    <option value="Hib">Hib (Haemophilus influenzae type b)</option>
-                    <option value="IPV">IPV (Polio)</option>
-                    <option value="PCV">PCV (Pneumococcal)</option>
-                    <option value="RV">RV (Rotavirus)</option>
-                    <option value="MMR">MMR (Measles, Mumps, Rubella)</option>
-                    <option value="Varicella">Varicella (Chickenpox)</option>
-                    <option value="Hepatitis A">Hepatitis A</option>
-                    <option value="HPV">HPV (Human Papillomavirus)</option>
-                    <option value="MenACWY">MenACWY (Meningococcal)</option>
-                    <option value="Tdap">Tdap (Tetanus, Diphtheria, Pertussis)</option>
-                    <option value="Influenza">Influenza (Flu)</option>
-                    <option value="Shingles">Shingles</option>
-                    <option value="Pneumococcal">Pneumococcal (Pneumonia)</option>
-                    <option value="COVID-19">COVID-19</option>
-                    <option value="Rabies">Rabies</option>
-                    <option value="Tetanus">Tetanus</option>
-                </select>
+                    <label for="vaccine">Select Vaccine:</label>
+                    <select id="vaccine" name="vaccine" required>
+                        <option value="">-- Select a Vaccine --</option>
+                        <option value="Hepatitis B">Hepatitis B</option>
+                        <option value="DTaP">DTaP (Diphtheria, Tetanus, Pertussis)</option>
+                        <option value="Hib">Hib (Haemophilus influenzae type b)</option>
+                        <option value="IPV">IPV (Polio)</option>
+                        <option value="PCV">PCV (Pneumococcal)</option>
+                        <option value="RV">RV (Rotavirus)</option>
+                        <option value="MMR">MMR (Measles, Mumps, Rubella)</option>
+                        <option value="Varicella">Varicella (Chickenpox)</option>
+                        <option value="Hepatitis A">Hepatitis A</option>
+                        <option value="HPV">HPV (Human Papillomavirus)</option>
+                        <option value="MenACWY">MenACWY (Meningococcal)</option>
+                        <option value="Tdap">Tdap (Tetanus, Diphtheria, Pertussis)</option>
+                        <option value="Influenza">Influenza (Flu)</option>
+                        <option value="Shingles">Shingles</option>
+                        <option value="Pneumococcal">Pneumococcal (Pneumonia)</option>
+                        <option value="COVID-19">COVID-19</option>
+                        <option value="Rabies">Rabies</option>
+                        <option value="Tetanus">Tetanus</option>
+                    </select>
 
-                <label for="center">Select Vaccination Center:</label>
-                <select id="center" name="center" required>
-                    <option value="">-- Select a Center --</option>
-                    <option value="Center A">Center A</option>
-                    <option value="Center B">Center B</option>
-                    <option value="Center C">Center C</option>
-                </select>
+                    <label for="center">Select Vaccination Center:</label>
+                    <select id="center" name="center" required>
+                        <option value="">-- Select a Center --</option>
+                        <option value="Center A">Center A</option>
+                        <option value="Center B">Center B</option>
+                        <option value="Center C">Center C</option>
+                    </select>
 
-                <label for="date">Preferred Date:</label>
-                <input type="date" id="date" name="date" required>
+                    <label for="date">Preferred Date:</label>
+                    <input type="date" id="date" name="date" required>
 
-                <label for="time">Preferred Time:</label>
-                <input type="time" id="time" name="time" required>
+                    <label for="time">Preferred Time:</label>
+                    <input type="time" id="time" name="time" required>
 
-                <div id="syncSection" style="display: flex; justify-content: space-between; margin-top: 20px;">
-                    <a
-                        href="https://www.google.com/calendar/render?action=TEMPLATE&text=Vaccination%20Appointment&details=Name%3A%20%5BYour%20Name%5D%0AVaccine%3A%20%5BVaccine%20Name%5D&location=Vaccination%20Center&dates=20231010T090000Z%2F20231010T100000Z"
-                        target="_blank"
-                        class="sync-link"
-                    >
-                        Sync with Google Calendar
-                    </a>
-                    <a href="upi://pay?pa=9560849244@ptyes&pn=Garvit%20Arora&cu=INR" target="_blank" class="payment-button">Pay and Schedule</a>
-                </div>
-            </form>
+                    <div id="syncSection">
+                        <a
+                            href="https://www.google.com/calendar/render?action=TEMPLATE&text=Vaccination%20Appointment&details=Name%3A%20%5BYour%20Name%5D%0AVaccine%3A%20%5BVaccine%20Name%5D&location=Vaccination%20Center&dates=20231010T090000Z%2F20231010T100000Z"
+                            target="_blank"
+                            class="sync-link"
+                        >
+                            Sync with Google Calendar
+                        </a>
+                    </div>
+                </form>
+            </div>
+
+            <div class="appointment-box">
+                <h3>Book an Appointment</h3>
+                <form class="appointment-form" id="paymentForm">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" required>
+
+                    <label for="vaccine">Select Vaccine:</label>
+                    <select id="vaccine" name="vaccine" required>
+                        <option value="">-- Select a Vaccine --</option>
+                        <option value="Hepatitis B">Hepatitis B</option>
+                        <option value="DTaP">DTaP (Diphtheria, Tetanus, Pertussis)</option>
+                        <option value="Hib">Hib (Haemophilus influenzae type b)</option>
+                        <option value="IPV">IPV (Polio)</option>
+                        <option value="PCV">PCV (Pneumococcal)</option>
+                        <option value="RV">RV (Rotavirus)</option>
+                        <option value="MMR">MMR (Measles, Mumps, Rubella)</option>
+                        <option value="Varicella">Varicella (Chickenpox)</option>
+                        <option value="Hepatitis A">Hepatitis A</option>
+                        <option value="HPV">HPV (Human Papillomavirus)</option>
+                        <option value="MenACWY">MenACWY (Meningococcal)</option>
+                        <option value="Tdap">Tdap (Tetanus, Diphtheria, Pertussis)</option>
+                        <option value="Influenza">Influenza (Flu)</option>
+                        <option value="Shingles">Shingles</option>
+                        <option value="Pneumococcal">Pneumococcal (Pneumonia)</option>
+                        <option value="COVID-19">COVID-19</option>
+                        <option value="Rabies">Rabies</option>
+                        <option value="Tetanus">Tetanus</option>
+                    </select>
+
+                    <label for="center">Select Vaccination Center:</label>
+                    <select id="center" name="center" required>
+                        <option value="">-- Select a Center --</option>
+                        <option value="Center A">Center A</option>
+                        <option value="Center B">Center B</option>
+                        <option value="Center C">Center C</option>
+                    </select>
+
+                    <label for="date">Preferred Date:</label>
+                    <input type="date" id="date" name="date" required>
+
+                    <label for="time">Preferred Time:</label>
+                    <input type="time" id="time" name="time" required>
+
+                    <div id="paymentSection">
+                        <a href="upi://pay?pa=9560849244@ptyes&pn=Garvit%20Arora&cu=INR" target="_blank" class="payment-button">Pay and Schedule</a>
+                    </div>
+                </form>
+            </div>
         </section>
     </main>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Vaccination Reminder. All rights reserved.</p>
+        <p>&copy; 2023 Vaccination Reminder. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>
