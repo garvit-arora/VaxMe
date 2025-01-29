@@ -196,20 +196,3 @@ function showAnimalVaccines(animalType) {
     }
 }
 
-// Check if the user is logged in
-window.onload = function() {
-    const userName = localStorage.getItem("userName");
-    if (userName) {
-        document.getElementById("userNameDisplay").innerText = `Welcome, ${userName}!`;
-        document.getElementById("loginBtn").style.display = "none";
-        document.getElementById("logoutBtn").style.display = "inline";
-    } else {
-        document.getElementById("loginBtn").style.display = "inline";
-        document.getElementById("logoutBtn").style.display = "none";
-    }
-};
-
-function logout() {
-    localStorage.removeItem("userName");
-    window.location.reload(); // Reload the page to update the UI
-}
