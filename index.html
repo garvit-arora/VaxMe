@@ -6,6 +6,60 @@
     <title>VAXIFY</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Navbar styles */
+        nav {
+            background: #4CAF50; /* Green background */
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .auth-buttons {
+            display: flex;
+            align-items: center;
+        }
+        #userNameDisplay {
+            margin-right: 10px;
+        }
+        .btn {
+            background-color: #fff; /* White background for buttons */
+            color: #4CAF50; /* Green text */
+            padding: 10px 15px; /* Some padding */
+            text-decoration: none; /* No underline */
+            border-radius: 5px; /* Rounded corners */
+            margin-left: 10px; /* Space between buttons */
+            transition: background-color 0.3s; /* Smooth transition */
+        }
+        .btn:hover {
+            background-color: #e0e0e0; /* Light gray on hover */
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+            background: #6a11cb; /* Header background */
+            color: white;
+        }
+        main {
+            padding: 20px;
+        }
+        .vaccine-list {
+            margin-top: 20px;
+        }
+        .vaccine-card {
+            background: white;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 <body>
     <!-- Navbar -->
@@ -14,10 +68,10 @@
         <a href='/centers'><i class="fas fa-map-marker-alt"></i> Vaccination Centers</a>
         <a href='/contact'><i class="fas fa-phone"></i> Contact Us</a>
         <div class="auth-buttons">
-    <span id="userNameDisplay" style="display: none;"></span>
-    <a class='btn' href='/login' id='loginBtn'>Login</a>
-    <a href="#" id="logoutBtn" class="btn" style="display: none;" onclick="logout()">Logout</a>
-</div>
+            <span id="userNameDisplay" style="display: none;"></span>
+            <a class='btn' href='/login' id='loginBtn'>Login</a>
+            <a href="#" id="logoutBtn" class="btn" style="display: none;" onclick="logout()">Logout</a>
+        </div>
     </nav>
 
     <!-- Header -->
@@ -90,7 +144,7 @@
 
                     <div id="syncSection">
                         <a
-                            href="https://www.google.com/calendar/render?action=TEMPLATE&text=Vaccination%20Appointment&details=Name%3A%20%5BYour%20Name%5D%0 Vaccine%3A%20%5BVaccine%20Name%5D&location=Vaccination%20Center&dates=20231010T090000Z%2F20231010T100000Z"
+                            href="https://www.google.com/calendar/render?action=TEMPLATE&text=Vaccination%20Appointment&details=Name%3A%20%5BYour%20Name%5D%0AVaccine%3A%20%5BVaccine%20Name%5D&location=Vaccination%20Center&dates=20231010T090000Z%2F20231010T100000Z"
                             target="_blank"
                             class="sync-link"
                         >
