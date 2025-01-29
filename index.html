@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,16 +13,17 @@
         <a href='/'><i class="fas fa-home"></i> Home</a>
         <a href='/centers'><i class="fas fa-map-marker-alt"></i> Vaccination Centers</a>
         <a href='/contact'><i class="fas fa-phone"></i> Contact Us</a>
-       <div class="auth-buttons">
-            <a class='btn' href='/login' id='loginBtn'>Login</a>
-           
+        <div class="auth-buttons">
+            <span id="userNameDisplay"></span>
+            <a class='btn' href='/login' id='loginBtn' style="display: none;">Login</a>
+            <a href="#" id="logoutBtn" class="btn" style="display: none;" onclick="logout()">Logout</a>
         </div>
     </nav>
 
     <!-- Header -->
     <header>
         <h1>Vaccination Appointment Scheduler</h1>
-        <p>Health in a Click ! Never Miss a Dose !</p>
+        <p>Health in a Click! Never Miss a Dose!</p>
     </header>
 
     <!-- Main Content -->
@@ -75,9 +75,9 @@
 
         <!-- Appointment Section -->
         <section>
-            <h2>Book an Appointment !</h2>
+            <h2>Book an Appointment!</h2>
             <div class="appointment-box">
-                <h3>Remind Me !</h3>
+                <h3>Remind Me!</h3>
                 <form class="appointment-form" id="appointmentForm">
                     <label for="name">Full Name:</label>
                     <input type="text" id="name" name="name" required>
@@ -90,7 +90,7 @@
 
                     <div id="syncSection">
                         <a
-                            href="https://www.google.com/calendar/render?action=TEMPLATE&text=Vaccination%20Appointment&details=Name%3A%20%5BYour%20Name%5D%0AVaccine%3A%20%5BVaccine%20Name%5D&location=Vaccination%20Center&dates=20231010T090000Z%2F20231010T100000Z"
+                            href="https://www.google.com/calendar/render?action=TEMPLATE&text=Vaccination%20Appointment&details=Name%3A%20%5BYour%20Name%5D%0 Vaccine%3A%20%5BVaccine%20Name%5D&location=Vaccination%20Center&dates=20231010T090000Z%2F20231010T100000Z"
                             target="_blank"
                             class="sync-link"
                         >
