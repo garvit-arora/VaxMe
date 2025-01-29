@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vaccination Appointment Scheduler - Hom</title>
+    <title>Vaccination Appointment Scheduler - Home</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -18,26 +18,27 @@
     <!-- Header -->
     <header>
         <h1>Vaccination Appointment Scheduler</h1>
-        <p> Health in a Click! Never Miss a Dose ./p>
+        <p> Health in a Click! Never Miss a Dose .</p>
     </header>
 
     <!-- Main Content -->
     <main>
-            <button id="agentButton" onclick="toggleChat()">💬</button>
+        <button id="agentButton" onclick="toggleChat()">💬</button>
 
-    <div id="chatContainer">
-        <div id="header">Vaccine Help Bot</div>
-        <div id="chatBox">
-            <div>Welcome! How can I assist you with vaccine-related queries?</div>
-            <div id="optionsContainer">
-                <button class="optionBtn" onclick="showVaccineInfo()">Know about vaccines</button>
-                <button class="optionBtn" onclick="callAgent()">Call an agent</button>
+        <div id="chatContainer">
+            <div id="header">Vaccine Help Bot</div>
+            <div id="chatBox">
+                <div>Welcome! How can I assist you with vaccine-related queries?</div>
+                <div id="optionsContainer">
+                    <button class="optionBtn" onclick="showVaccineInfo()">Know about vaccines</button>
+                    <button class="optionBtn" onclick="callAgent()">Call an agent</button>
+                </div>
+            </div>
+            <div id="footer">
+                <span>Vaccine Bot</span>
             </div>
         </div>
-        <div id="footer">
-            <span>Vaccine Bot</span>
-        </div>
-    </div>
+
         <!-- Age-wise Vaccine Suggestions -->
         <section>
             <h2>Age-wise Vaccine Suggestions</h2>
@@ -116,34 +117,24 @@
 
                 <label for="time">Preferred Time:</label>
                 <input type="time" id="time" name="time" required>
-            
-            <!-- Add this inside your form -->
-<div id="syncSection">
-    <a
-        href="https://www.google.com/calendar/render?action=TEMPLATE&text=Vaccination%20Appointment&details=Name%3A%20%5BYour%20Name%5D%0AVaccine%3A%20%5BVaccine%20Name%5D&location=Vaccination%20Center&dates=20231010T090000Z%2F20231010T100000Z"
-        target="_blank"
-        class="sync-link"
-    >
-        Sync with Google Calendar
-    </a>
-</div>
-                <pre>
-                </pre>
-            
-                <!-- UPI Deep Link -->
-                <a href="upi://pay?pa=9560849244@ptyes&pn=Garvit%20Arora&cu=INR" target="_blank" class="payment-button">Pay and Schedule</a>
+
+                <div id="syncSection" style="display: flex; justify-content: space-between; margin-top: 20px;">
+                    <a
+                        href="https://www.google.com/calendar/render?action=TEMPLATE&text=Vaccination%20Appointment&details=Name%3A%20%5BYour%20Name%5D%0AVaccine%3A%20%5BVaccine%20Name%5D&location=Vaccination%20Center&dates=20231010T090000Z%2F20231010T100000Z"
+                        target="_blank"
+                        class="sync-link"
+                    >
+                        Sync with Google Calendar
+                    </a>
+                    <a href="upi://pay?pa=9560849244@ptyes&pn=Garvit%20Arora&cu=INR" target="_blank" class="payment-button">Pay and Schedule</a>
+                </div>
             </form>
         </section>
     </main>
 
-
-
-
-
-
     <!-- Footer -->
     <footer>
-        <p>&copy; 2023 Vaccination Reminder. All rights reserved.</p>
+        <p>&copy; 2025 Vaccination Reminder. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>
