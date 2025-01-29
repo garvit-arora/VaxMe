@@ -301,3 +301,20 @@ function callAgent() {
         chatBox.innerHTML += '<div>An agent is now available. How can I assist you further?</div>';
     }, 2000);
 }
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-analytics.js";
+  
+  const firebaseConfig = {
+    apiKey: "AIzaSyDbxdhFMvPPiZP4uDOFExE6B8oTk3LqSJ8",
+    authDomain: "vaxify-957e6.firebaseapp.com",
+    projectId: "vaxify-957e6",
+    storageBucket: "vaxify-957e6.firebasestorage.app",
+    messagingSenderId: "948078390575",
+    appId: "1:948078390575:web:df400b425591229a25c5da",
+    measurementId: "G-1MHC78BXMV"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
