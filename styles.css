@@ -329,6 +329,32 @@ footer {
     display: flex;
     gap: 10px;
 }
+/* Align the buttons to the top-right */
+.button-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+/* Button styling */
+#login-button, #register-button {
+    background-color: #28a745; /* Green color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect */
+#login-button:hover, #register-button:hover {
+    background-color: #218838; /* Darker green on hover */
+}
 
 /* Unique Button Styles */
 #loginBtn, #registerBtn {
