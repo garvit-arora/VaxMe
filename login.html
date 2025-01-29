@@ -54,12 +54,10 @@
             const name = document.getElementById("name").value;
             const email = document.getElementById("email").value;
             const password = document.getElementById("password").value;
-
-            
             localStorage.setItem("userName", name);
 
-            
-            window.location.href = "https://vaxify.netlify.app";
+            // Redirect to the main page after "logging in"
+            window.location.href = "/"; // Change this to your main page URL
         }
     </script>
 </head>
