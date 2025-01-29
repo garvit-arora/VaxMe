@@ -417,3 +417,81 @@ footer {
 .submit-btn:hover {
     background: #0056b3;
 }
+/* Navbar styles */
+nav {
+    background: #333;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.auth-buttons {
+    display: flex;
+    align-items: center;
+}
+
+#userNameDisplay {
+    margin-right: 10px;
+}
+
+/* Header styles */
+header {
+    text-align: center;
+    padding: 20px;
+    background: #6a11cb;
+    color: white;
+}
+
+/* Main content styles */
+main {
+    padding: 20px;
+}
+
+/* Vaccine list styles */
+.vaccine-list {
+    margin-top: 20px;
+}
+
+.vaccine-card {
+    background: white;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Dropdown styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
