@@ -1,80 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login Page</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 50px;
-      background-color: #f7f7f7;
-    }
-    .login-container {
-      margin: 0 auto;
-      padding: 20px;
-      background-color: white;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      width: 300px;
-    }
-    .google-btn {
-      background-color: #4285F4;
-      color: white;
-      padding: 12px 24px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-      width: 100%;
-    }
-    .google-btn:hover {
-      background-color: #357ae8;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading...</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            overflow: hidden;
+        }
+        .loader {
+            border: 8px solid rgba(255, 255, 255, 0.2);
+            border-top: 8px solid white;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        h2 {
+            font-size: 24px;
+            margin: 0;
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        p {
+            font-size: 16px;
+            margin-top: 10px;
+            animation: fadeIn 1s ease-in-out 0.5s forwards;
+            opacity: 0;
+        }
+    </style>
+    <script>
+        // Redirect after 3 seconds
+        setTimeout(function() {
+            window.location.href = "https://vaxify.netlify.app";
+        }, 3000);
+    </script>
 </head>
 <body>
-
-  <div class="login-container">
-    <h2>Login with Google</h2>
-    <button class="google-btn" id="google-signin">Login with Google</button>
-  </div>
-
-  <script src="https://apis.google.com/js/platform.js" async defer></script>
-
-  <script>
-
-    const CLIENT_ID = '322142898682-o8a1oirbisfbr95sujb4g59dfjukqnq8.apps.googleusercontent.com';
-
-    function handleLoginSuccess(response) {
-      // Extract user info
-      const user = response.getBasicProfile();
-      const userName = user.getName();
-
-      // Redirect to vaxify.netlify.app and pass user's name as a query parameter
-      window.location.href = `https://vaxify.netlify.app?name=${encodeURIComponent(userName)}`;
-    }
-
-    function initGoogleSignIn() {
-      gapi.load('auth2', function() {
-        gapi.auth2.init({
-          client_id: CLIENT_ID
-        }).then(function() {
-          const auth2 = gapi.auth2.getAuthInstance();
-          
-          document.getElementById('google-signin').addEventListener('click', function() {
-            auth2.signIn().then(function(googleUser) {
-              handleLoginSuccess(googleUser);
-            });
-          });
-        });
-      });
-    }
-
-    // Initialize Google Sign-In when page loads
-    initGoogleSignIn();
-  </script>
-
+    <div>
+        <div class="loader"></div>
+        <h2>Loading, please wait...</h2>
+        <p>We're preparing something special for you!</p>
+    </div>
 </body>
 </html>
