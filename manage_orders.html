@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #4CAF50; /* Green background */
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        main {
+            padding: 20px;
+        }
+        .filter-options {
+            margin-bottom: 20px;
+        }
+        .filter-options input, .filter-options select {
+            margin-right: 10px;
+            padding: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #4CAF50; /* Green header */
+            color: white;
+        }
+        button {
+            background-color: #4CAF50; /* Green button */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #333;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Order Management</h1>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="manage_orders.html">Manage Orders</a>
+            <a href="archive_orders.html">Archive Orders</a>
+            <a href="logout.html">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Order Summary</h2>
+            <div class="filter-options">
+                <input type="text" id="searchInput" placeholder="Search by Order ID or Provider Name">
+                <label for="status">Status:</label>
+                <select id="status">
+                    <option value="all">All</option>
+                    <option value="pending">Pending</option>
+                    <option value="approved">Approved</option>
+                    <option value="shipped">Shipped</option>
+                    <option value="archived">Archived</option>
+                </select>
+                <label for="date-range">Date Range:</label>
+                <input type="date" id="start-date">
+                <input type="date" id="end-date">
+                <button onclick="filterOrders()">Filter</button>
+            </div>
+            <table id="orderTable">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Provider Name</th>
+                        <th>Order Date</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Order rows will be populated here -->
+                </tbody>
+            </table>
+            <button id="archive-selected" onclick="archiveSelected()">Archive Selected Orders</button>
+            <button id="export-orders" onclick="exportOrders()">Export Orders</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>Contact Support: support@example.com</p>
+        <p><a href="user_manual.html" style="color: white;">User  Manual</a></p>
+    </footer>
+
+    <script>
+        // Sample order data
+        const orders = [
+            { id: 1, provider: "Provider A", date: "2023-10-01", status: "Pending" },
+            { id: 2, provider: "Provider B", date: "2023-10-02", status: "Approved" },
+            { id: 3, provider: "Provider C", date: "2023-10-03", status: "Shipped" },
+            { id: 4, provider: "Provider D", date: "2023-10-04", status: "Archived" },
+        ];
+
+        // Function to display orders in the table
+        function displayOrders() {
+            const tableBody = document.querySelector('#orderTable tbody');
+            tableBody.innerHTML = ""; // Clear previous content
+
+            orders.forEach(order => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${order.id}</td>
+                    <td>${order.provider}</td>
+                    <td>${order.date}</td>
+                    <td>${order.status}</td>
+                    <td>
+                        <button onclick="viewOrder(${order.id})">View Details</button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Function to filter orders based on input
+        function filterOrders() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const statusFilter = document.getElementById('status').value;
+            const startDate = document.getElementById('start-date').value;
+            const endDate = document.getElementById('end-date').value;
+
+            const filteredOrders = orders.filter(order => {
+                const matchesSearch = order.provider.toLowerCase().includes(searchInput) || order.id.toString().includes(searchInput);
+                const matchesStatus = statusFilter === "all" || order.status.toLowerCase() === statusFilter.toLowerCase();
+                const matchesDate = (!startDate || order.date >= startDate) && (!endDate || order.date <= endDate);
+                return matchesSearch && matchesStatus && matchesDate;
+            });
+
+            const tableBody = document.querySelector('#orderTable tbody');
+            tableBody.innerHTML = ""; // Clear previous content
+
+            filteredOrders.forEach(order => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${order.id}</td>
+                    <td>${order.provider}</td>
+                    <td>${order.date}</td>
+                    <td>${order.status}</td>
+                    <td>
+                        <button onclick="viewOrder(${order.id})">View Details</button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        ```javascript
+        }
+
+        // Function to view order details
+        function viewOrder(orderId) {
+            const order = orders.find(o => o.id === orderId);
+            if (order) {
+                alert(`Order ID: ${order.id}\nProvider: ${order.provider}\nDate: ${order.date}\nStatus: ${order.status}`);
+            }
+        }
+
+        // Function to archive selected orders (placeholder)
+        function archiveSelected() {
+            alert("Selected orders have been archived (functionality not implemented).");
+        }
+
+        // Function to export orders (placeholder)
+        function exportOrders() {
+            alert("Orders exported as CSV (functionality not implemented).");
+        }
+
+        // Initial display of orders
+        displayOrders();
+    </script>
+</body>
+</html>
