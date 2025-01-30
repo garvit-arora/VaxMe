@@ -412,7 +412,9 @@ nav a {
 
 
 /* Main content styles */
-
+main {
+    padding: 20px;
+}
 
 /* Vaccine list styles */
 .vaccine-list {
