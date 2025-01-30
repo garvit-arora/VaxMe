@@ -76,7 +76,7 @@
             <a href="index.html">Home</a>
             <a href="manage_orders.html">Manage Orders</a>
             <a href="archive_orders.html">Archive Orders</a>
-            <a href="logout.html">Logout</a>
+            <a href="login.html">Logout</a>
         </nav>
     </header>
 
@@ -166,7 +166,7 @@
             });
 
             const tableBody = document.querySelector('#orderTable tbody');
-            tableBody.innerHTML = ""; // Clear previous content
+            tableBody.innerHTML = ""; 
 
             filteredOrders.forEach(order => {
                 const row = document.createElement('tr');
